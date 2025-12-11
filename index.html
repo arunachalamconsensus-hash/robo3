@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Task3 - Dance</title>
+<style>
+  *{box-sizing:border-box;font-family:Arial}
+  body{display:flex;flex-direction:column;align-items:center;padding:20px;background:#fff7ed}
+  .btns{display:flex;gap:10px;margin-bottom:12px}
+  button{padding:10px;border-radius:8px;border:none;background:#10b981;color:#fff}
+  .stage{height:320px;width:360px;display:flex;align-items:center;justify-content:center}
+  .robot{width:180px;display:flex;flex-direction:column;align-items:center}
+  .upper{display:flex;gap:8px;align-items:center}
+  .head{width:70px;height:60px;background:#b59f6b;border-radius:50px}
+  .body{width:120px;height:120px;background:#b59f6b;border-radius:18px;margin-top:8px}
+
+  .robot.moonwalk{animation:moonwalk 2s linear infinite}
+  @keyframes moonwalk{0%{transform:translateX(0)}50%{transform:translateX(-40px)}100%{transform:translateX(0)}}
+
+  .robot.spin{animation:spin 1.2s linear infinite}
+  @keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+
+  .robot.shake{animation:shake .5s ease-in-out infinite}
+  @keyframes shake{0%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}100%{transform:translateX(0)}}
+
+  .robot.slideleft{animation:slideleft 1.6s ease-in-out infinite}
+  @keyframes slideleft{0%{transform:translateX(0)}50%{transform:translateX(-80px)}100%{transform:translateX(0)}}
+  .robot.slideright{animation:slideright 1.6s ease-in-out infinite}
+  @keyframes slideright{0%{transform:translateX(0)}50%{transform:translateX(80px)}100%{transform:translateX(0)}}
+</style></head>
+<body>
+  <h1>Task 3 — Robot Dance Trainer</h1>
+  <div class="btns">
+    <button onclick="set('moonwalk')">Moonwalk</button>
+    <button onclick="set('spin')">Spin</button>
+    <button onclick="set('shake')">Shake</button>
+    <button onclick="set('slideleft')">Slide Left</button>
+    <button onclick="set('slideright')">Slide Right</button>
+    <button onclick="set('')">Reset</button>
+  </div>
+  <div class="stage">
+    <div id="robot" class="robot">
+      <div class="upper"><div class="head"></div></div>
+      <div class="body"></div>
+    </div>
+  </div>
+  <script>function set(c){const r=document.getElementById('robot');r.className='robot';if(c)r.classList.add(c)}</script>
+</body></html>
